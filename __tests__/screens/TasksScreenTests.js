@@ -7,6 +7,7 @@ import renderer from 'react-test-renderer';
 
 let component;
 const currentTasks = TasksScreen.state;
+const modal = new TasksScreen();
 const navigationMock = { navigate: jest.fn() };
 
 describe('Tasks Screen - ', () => {
@@ -54,6 +55,14 @@ describe('Tasks Screen - ', () => {
         }
       }
       expect(contador)not.toBe(currentTasks);
+    });
+
+    it('should open modal', () => {
+      expect(modal.openAddTaskModal().toBe(undefined));
+    });
+
+    it('should close modal', () => {
+      expect(modal.closeAddTaskModal().toBe(undefined));
     });
 
 });
